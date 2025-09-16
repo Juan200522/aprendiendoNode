@@ -1,9 +1,11 @@
-// Provando ls con promesas
+// Sistema de modulos
 const fs = require('node:fs/promises');
 const path = require('node:path');
 
+// Tema process
 const folder = process.argv[2] ?? '.'
 
+// Asincornia Secuencial
 async function ls (folder) {
     let files
     try{
@@ -13,6 +15,7 @@ async function ls (folder) {
         process.exit(1)
     }
 
+        // Recuperacion de informacion de todos los ficheros del directorio en paralelo
         const filesPromises = files.map(async file => {
         const filePath = path.join(folder, file)
         let stats
